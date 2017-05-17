@@ -118,7 +118,6 @@ procedure WriteToFile(path: AnsiString);
 var	
 	f: TextFile;
 	x: integer;
-	ch: char;
 begin
 	AssignFile(f, path);
 	{I+}
@@ -135,10 +134,7 @@ begin
 		WaitSomeMiliseconds();
 		WriteLn(x, ' of ', maxLines, '[ESC] = break');
 		WriteLn(f, GetDateTime(), ' ', GetListIp('ip'), ' ', GetRandomNumber('num', 1000));
-		ch := ReadKey;
-		if ch = #27 then
-			break;
-	until false;
+	until keypressed;
 	CloseFile(f);
 end;
 
