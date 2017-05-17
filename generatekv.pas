@@ -25,6 +25,18 @@ var
 	maxLines: integer;
 
 	
+procedure WaitSomeMiliseconds();
+var
+	num: integer;
+begin
+	Randomize;
+	
+	num := Random(3) + 1;
+	WriteLn(num);
+end;
+
+	
+	
 function GetDateTime(): AnsiString;
 //
 //	Get the current date time in the format: YYYY-MM-DD HH:MM:SS
@@ -42,6 +54,11 @@ begin
 	Yr := 0; 
 	Md := 0;
 	Dy := 0;
+	Dow := 0;
+	Hr := 0;
+	Mn := 0;
+	Sc := 0;
+	S100 := 0;
 	GetDate(Yr, Md, Dy, Dow);
 	GetTime(Hr, Mn, Sc, S100);
 	GetDateTime := NumberAlign(Yr, 4) + '-' + NumberAlign(Md, 2) + '-' + NumberAlign(Dy, 2) + ' ' + NumberAlign(Hr, 2) + ':' + NumberAlign(Mn, 2) + ':' + NumberAlign(Sc, 2) + '.' + NumberAlign(S100, 4);
@@ -70,8 +87,8 @@ begin
 	WriteLn('Running...');
 	path := 'testkv.log';
 	
-	
-	WriteToFile(path)
+	WaitSomeMiliseconds();
+	//WriteToFile(path)
 end. 
 
 // EOS
