@@ -113,7 +113,7 @@ begin
 	for x := 1 to maxLines do
 	begin
 		WaitSomeMiliseconds();
-		WriteLn(f, GetDateTime(), ' ', x);
+		WriteLn(f, GetDateTime(), ' ip=', GetIP());
 	end;
 	CloseFile(f);
 end;
@@ -125,8 +125,8 @@ begin
 	path := 'testkv.log';
 	
 	//WaitSomeMiliseconds();
-	//WriteToFile(path)
-	WriteLn('Returned IP=', GetIp());
+	WriteToFile(path)
+	//WriteLn('Returned IP=', GetIp());
 end. 
 
 // EOS
