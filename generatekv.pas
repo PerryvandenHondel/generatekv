@@ -136,9 +136,9 @@ end;
 
 
 begin
-	maxLines := 250;
+	maxLines := 50;
 	WriteLn('Running...');
-	path := 'testkv.log';
+	path := 'd:\opt\splunk\sandbox\testkv.log';
 	
 	//WaitSomeMiliseconds();
 	WriteToFile(path)
