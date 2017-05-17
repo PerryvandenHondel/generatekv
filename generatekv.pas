@@ -30,7 +30,7 @@ var
 	num: integer;
 begin
 	Randomize;
-	num := Random(999) + 1;
+	num := Random(57) + 1;
 	Sleep(num);
 end;
 
@@ -64,7 +64,7 @@ begin
 end; // of function GetDateTime
 	
 	
-function GetIp(): AnsiString;
+function GetListIp(): AnsiString;
 var
 	path: AnsiString;
 	f: TextFile;
@@ -96,7 +96,7 @@ begin
 		//WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
-	GetIP := r;
+	GetListIp := r;
 end;	
 	
 	
@@ -113,14 +113,14 @@ begin
 	for x := 1 to maxLines do
 	begin
 		WaitSomeMiliseconds();
-		WriteLn(f, GetDateTime(), ' ip=', GetIP());
+		WriteLn(f, GetDateTime(), ' ip=', GetListIp());
 	end;
 	CloseFile(f);
 end;
 
 
 begin
-	maxLines := 100;
+	maxLines := 25;
 	WriteLn('Running...');
 	path := 'testkv.log';
 	
