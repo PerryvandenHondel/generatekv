@@ -30,9 +30,8 @@ var
 	num: integer;
 begin
 	Randomize;
-	
 	num := Random(999) + 1;
-	WriteLn(num);
+	Sleep(num);
 end;
 
 	
@@ -76,6 +75,7 @@ begin
 	ReWrite(f);
 	for x := 1 to maxLines do
 	begin
+		WaitSomeMiliseconds();
 		WriteLn(f, GetDateTime(), ' ', x);
 	end;
 	CloseFile(f);
@@ -87,8 +87,8 @@ begin
 	WriteLn('Running...');
 	path := 'testkv.log';
 	
-	WaitSomeMiliseconds();
-	//WriteToFile(path)
+	//WaitSomeMiliseconds();
+	WriteToFile(path)
 end. 
 
 // EOS
