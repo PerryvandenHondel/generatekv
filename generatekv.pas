@@ -69,13 +69,16 @@ var
 	path: AnsiString;
 	f: TextFile;
 	line: AnsiString;
-	numLines: integer;
+	entries: integer;
+	selected: integer;
 begin
 	path := 'list-ip.txt';
 	
-	numLines := LineCount(path);
+	entries := LineCount(path);
+	selected := Random(entries) + 1;
 	
-	WriteLn(numLines);
+	WriteLn(entries);
+	WriteLn(selected);
 	
 	AssignFile(f, path);
 	{I+}
