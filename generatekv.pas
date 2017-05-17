@@ -14,6 +14,7 @@ program GenerateKV;
 
 
 uses
+	Crt,
 	Dos,
 	StrUtils,
 	SysUtils,
@@ -65,7 +66,7 @@ begin
 end; // of function GetDateTime
 	
 	
-function GetListIp(): AnsiString;
+function GetListIp(key: AnsiString): AnsiString;
 var
 	path: AnsiString;
 	f: TextFile;
@@ -97,11 +98,11 @@ begin
 		//WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
-	GetListIp := r;
+	GetListIp := key + '=' + r;
 end;	
 	
 	
-function GetRandomNumber(maxNumber: integer): integer;
+function GetRandomNumber(key: Ansistring; maxNumber: integer): integer;
 var
 	r: integer;
 begin
@@ -117,6 +118,7 @@ procedure WriteToFile(path: AnsiString);
 var	
 	f: TextFile;
 	x: integer;
+	ch: char;
 begin
 	AssignFile(f, path);
 	{I+}
@@ -126,12 +128,17 @@ begin
 	else
 		ReWrite(f);	// Open the file in write mode for writing to a new file
 	
-	for x := 1 to maxLines do
-	begin
+	//for x := 1 to maxLines do
+	x := 0;
+	repeat
+		inc(x);
 		WaitSomeMiliseconds();
-		WriteLn(x, ' of ', maxLines);
-		WriteLn(f, GetDateTime(), ' ip=', GetListIp(), ' number=', GetRandomNumber(1000));
-	end;
+		WriteLn(x, ' of ', maxLines, '[ESC] = break');
+		WriteLn(f, GetDateTime(), ' ', GetListIp('ip'), ' ', GetRandomNumber('num', 1000));
+		ch := ReadKey;
+		if ch = #27 then
+			break;
+	until false;
 	CloseFile(f);
 end;
 
