@@ -31,7 +31,7 @@ var
 begin
 	Randomize;
 	
-	num := Random(3) + 1;
+	num := Random(999) + 1;
 	WriteLn(num);
 end;
 
