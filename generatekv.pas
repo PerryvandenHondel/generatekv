@@ -30,7 +30,7 @@ var
 	num: integer;
 begin
 	Randomize;
-	num := Random(57) + 1;
+	num := Random(450) + 1;
 	Sleep(num);
 end;
 
@@ -120,7 +120,8 @@ begin
 	AssignFile(f, path);
 	{I+}
 	// Open the file in write mode.
-	ReWrite(f);
+	//ReWrite(f);
+	Append(f);
 	for x := 1 to maxLines do
 	begin
 		WaitSomeMiliseconds();
