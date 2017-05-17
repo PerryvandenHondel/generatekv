@@ -89,8 +89,11 @@ begin
 	Reset(f);
 	for x := 1 to selected do
 	begin
-		ReadLn(f, r);
-		WriteLn(x, ': ', r);
+		ReadLn(f, line);
+		if x = selected then
+			r := line;
+			
+		WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
 	GetIP := r;
