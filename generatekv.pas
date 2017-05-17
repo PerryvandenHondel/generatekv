@@ -118,6 +118,7 @@ procedure WriteToFile(path: AnsiString);
 var	
 	f: TextFile;
 	x: integer;
+	z: integer;
 begin
 	AssignFile(f, path);
 	{I+}
@@ -133,7 +134,15 @@ begin
 		inc(x);
 		WaitSomeMiliseconds();
 		WriteLn(x, ' of ', maxLines, '[ESC] = break');
-		WriteLn(f, GetDateTime(), ' ', GetListIp('ip'), ' ', GetRandomNumber('num', 1000));
+		randomize;
+		
+		z := random(5);
+		case z of
+			1: WriteLn(f, GetDateTime(), ' ', GetListIp('ip'), ' ', GetRandomNumber('num', 1000));
+			2: WriteLn(f, GetDateTime(), ' ', GetListIp('src_ip'), ' ', GetListIp('dst_ip'), ' ', GetRandomNumber('bytes_transferd', 20000));
+			3: WriteLn('3');
+			4: WriteLn('4');
+		end; // case
 	until keypressed;
 	CloseFile(f);
 end;
