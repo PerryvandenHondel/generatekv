@@ -72,6 +72,8 @@ var
 	entries: integer;
 	selected: integer;
 begin
+	Randomize;
+	
 	path := 'list-ip.txt';
 	
 	entries := LineCount(path);
