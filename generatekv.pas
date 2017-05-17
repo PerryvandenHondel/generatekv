@@ -132,7 +132,7 @@ end;
 
 
 begin
-	maxLines := 25;
+	maxLines := 4000;
 	WriteLn('Running...');
 	path := 'testkv.log';
 	
