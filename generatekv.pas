@@ -30,7 +30,7 @@ var
 	num: integer;
 begin
 	Randomize;
-	num := Random(450) + 1;
+	num := Random(2000) + 1;
 	Sleep(num);
 end;
 
@@ -60,7 +60,8 @@ begin
 	S100 := 0;
 	GetDate(Yr, Md, Dy, Dow);
 	GetTime(Hr, Mn, Sc, S100);
-	GetDateTime := NumberAlign(Yr, 4) + '-' + NumberAlign(Md, 2) + '-' + NumberAlign(Dy, 2) + ' ' + NumberAlign(Hr, 2) + ':' + NumberAlign(Mn, 2) + ':' + NumberAlign(Sc, 2) + '.' + NumberAlign(S100, 4);
+	//GetDateTime := NumberAlign(Yr, 4) + '-' + NumberAlign(Md, 2) + '-' + NumberAlign(Dy, 2) + ' ' + NumberAlign(Hr, 2) + ':' + NumberAlign(Mn, 2) + ':' + NumberAlign(Sc, 2) + '.' + NumberAlign(S100, 4);
+	GetDateTime := NumberAlign(Yr, 4) + '-' + NumberAlign(Md, 2) + '-' + NumberAlign(Dy, 2) + ' ' + NumberAlign(Hr, 2) + ':' + NumberAlign(Mn, 2) + ':' + NumberAlign(Sc, 2);
 end; // of function GetDateTime
 	
 	
