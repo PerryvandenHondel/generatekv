@@ -71,6 +71,8 @@ var
 	line: AnsiString;
 	entries: integer;
 	selected: integer;
+	x: integer;
+	r: AnsiString;
 begin
 	Randomize;
 	
@@ -85,13 +87,13 @@ begin
 	AssignFile(f, path);
 	{I+}
 	Reset(f);
-	while not eof(f) do
+	for x := 1 to selected do
 	begin
 		ReadLn(f, line);
-		WriteLn(line);
+		WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
-	GetIP := '';
+	GetIP := r
 end;	
 	
 	
