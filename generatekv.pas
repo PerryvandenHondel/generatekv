@@ -31,7 +31,7 @@ var
 	num: integer;
 begin
 	Randomize;
-	num := Random(2000) + 1;
+	num := Random(750) + 1;
 	Sleep(num);
 end;
 
