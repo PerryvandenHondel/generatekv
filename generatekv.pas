@@ -112,7 +112,8 @@ begin
 	
 	GetRandomNumber := key + '=' + IntToStr(r);
 end;
-	
+
+
 	
 procedure WriteToFile(path: AnsiString);
 var	
@@ -133,7 +134,7 @@ begin
 	repeat
 		inc(x);
 		WaitSomeMiliseconds();
-		WriteLn(x, ' of ', maxLines, '[ESC] = break');
+		WriteLn(x, ' [ESC] = break');
 		randomize;
 		
 		z := random(5);
@@ -149,7 +150,6 @@ end;
 
 
 begin
-	maxLines := 50;
 	WriteLn('Running...');
 	path := 'd:\opt\splunk\sandbox\testkv.log';
 	
