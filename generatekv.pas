@@ -69,8 +69,14 @@ var
 	path: AnsiString;
 	f: TextFile;
 	line: AnsiString;
+	numLines: integer;
 begin
 	path := 'list-ip.txt';
+	
+	numLines := LineCount(path);
+	
+	WriteLn(numLines);
+	
 	AssignFile(f, path);
 	{I+}
 	Reset(f);
