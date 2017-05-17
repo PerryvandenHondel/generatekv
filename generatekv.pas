@@ -64,6 +64,27 @@ begin
 end; // of function GetDateTime
 	
 	
+function GetIp(): AnsiString;
+var
+	path: AnsiString;
+	f: TextFile;
+	line: AnsiString;
+begin
+	path := 'list-ip.txt';
+	AssignFile(f, path);
+	{I+}
+	Reset(f);
+	while not eof(f) do
+	begin
+		ReadLn(f, line);
+		WriteLn(line);
+	end;
+	CloseFile(f);
+	GetIP := '';
+end;	
+	
+	
+	
 procedure WriteToFile(path: AnsiString);
 var	
 	f: TextFile;
@@ -88,7 +109,8 @@ begin
 	path := 'testkv.log';
 	
 	//WaitSomeMiliseconds();
-	WriteToFile(path)
+	//WriteToFile(path)
+	GetIp();
 end. 
 
 // EOS
