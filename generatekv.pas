@@ -124,6 +124,7 @@ begin
 	for x := 1 to maxLines do
 	begin
 		WaitSomeMiliseconds();
+		WriteLn(x, ' of ', maxLines);
 		WriteLn(f, GetDateTime(), ' ip=', GetListIp(), ' number=', GetRandomNumber(1000));
 	end;
 	CloseFile(f);
