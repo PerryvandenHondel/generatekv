@@ -75,7 +75,7 @@ var
 	r: AnsiString;
 begin
 	Randomize;
-	
+	r := '';
 	path := 'list-ip.txt';
 	
 	entries := LineCount(path);
@@ -93,7 +93,7 @@ begin
 		WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
-	GetIP := r
+	GetIP := r;
 end;	
 	
 	
@@ -123,7 +123,7 @@ begin
 	
 	//WaitSomeMiliseconds();
 	//WriteToFile(path)
-	GetIp();
+	WriteLn('Returned IP=', GetIp());
 end. 
 
 // EOS
