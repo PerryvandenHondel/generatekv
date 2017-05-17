@@ -100,6 +100,17 @@ begin
 end;	
 	
 	
+function GetRandomNumber(maxNumber: integer): integer;
+var
+	r: integer;
+begin
+	Randomize;
+	
+	r := Random(maxNumber) + 1;
+	
+	GetRandomNumber := r;
+end;
+	
 	
 procedure WriteToFile(path: AnsiString);
 var	
@@ -113,7 +124,7 @@ begin
 	for x := 1 to maxLines do
 	begin
 		WaitSomeMiliseconds();
-		WriteLn(f, GetDateTime(), ' ip=', GetListIp());
+		WriteLn(f, GetDateTime(), ' ip=', GetListIp(), ' number=', GetRandomNumber(1000));
 	end;
 	CloseFile(f);
 end;
