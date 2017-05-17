@@ -81,8 +81,8 @@ begin
 	entries := LineCount(path);
 	selected := Random(entries) + 1;
 	
-	WriteLn(entries);
-	WriteLn(selected);
+	//WriteLn(entries);
+	//WriteLn(selected);
 	
 	AssignFile(f, path);
 	{I+}
@@ -93,7 +93,7 @@ begin
 		if x = selected then
 			r := line;
 			
-		WriteLn(x, ': ', line);
+		//WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
 	GetIP := r;
