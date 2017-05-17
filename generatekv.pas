@@ -119,9 +119,12 @@ var
 begin
 	AssignFile(f, path);
 	{I+}
-	// Open the file in write mode.
-	//ReWrite(f);
-	Append(f);
+	
+	if FileExists(path) then
+		Append(f) // Append to the existing file.
+	else
+		ReWrite(f);	// Open the file in write mode for writing to a new file
+	
 	for x := 1 to maxLines do
 	begin
 		WaitSomeMiliseconds();
@@ -133,7 +136,7 @@ end;
 
 
 begin
-	maxLines := 4000;
+	maxLines := 250;
 	WriteLn('Running...');
 	path := 'testkv.log';
 	
