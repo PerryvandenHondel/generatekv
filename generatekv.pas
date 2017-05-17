@@ -102,7 +102,7 @@ begin
 end;	
 	
 	
-function GetRandomNumber(key: Ansistring; maxNumber: integer): integer;
+function GetRandomNumber(key: Ansistring; maxNumber: integer): AnsiString;
 var
 	r: integer;
 begin
@@ -110,7 +110,7 @@ begin
 	
 	r := Random(maxNumber) + 1;
 	
-	GetRandomNumber := r;
+	GetRandomNumber := key + '=' + IntToStr(r);
 end;
 	
 	
