@@ -133,11 +133,11 @@ begin
 	x := 0;
 	repeat
 		inc(x);
-		WaitSomeMiliseconds();
+		//WaitSomeMiliseconds();
 		WriteLn(x, ' [ESC] = break');
 		randomize;
 		
-		z := random(5);
+		z := random(3);
 		case z of
 			1: WriteLn(f, GetDateTime(), ' ', GetListIp('ip'), ' ', GetRandomNumber('num', 1000));
 			2: WriteLn(f, GetDateTime(), ' ', GetListIp('src_ip'), ' ', GetListIp('dst_ip'), ' ', GetRandomNumber('bytes_transferd', 20000));
