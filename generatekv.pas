@@ -186,8 +186,9 @@ begin
 			3: l := GetRandomItemFromFile('list-computer.txt','system');
 			4: WriteLn('4');
 		end; // case
+		l := GetDateTime() + SPACE + l;
 		WriteLn(l);
-		WriteLn(f, GetDateTime(), ' ', l);
+		WriteLn(f, l);
 	until keypressed;
 	CloseFile(f);
 end;
