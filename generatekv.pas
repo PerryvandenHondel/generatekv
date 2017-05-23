@@ -27,6 +27,7 @@ const
 	
 var
 	path: AnsiString;
+	configMaxWait: integer;
 	//maxLines: integer;
 
 	
@@ -83,7 +84,7 @@ var
 	r: AnsiString;
 begin
 	Randomize;
-	Sleep(500);
+	Sleep(configMaxWait);
 	
 	r := '';
 	
@@ -137,7 +138,7 @@ begin
 	//for x := 1 to maxLines do
 	x := 0;
 	repeat
-		Sleep(200);
+		Sleep(configMaxWait);
 		randomize;
 		
 		inc(x);
@@ -163,6 +164,8 @@ begin
 	
 	path := ReadSettingKey('generatekv.conf', 'Settings', 'output');
 	//path := 'd:\opt\splunk\sandbox\testkv.log';
+	
+	configMaxWait := StrToInt(ReadSettingKey('generatekv.conf', 'Settings', 'maxWait'));
 	
 	//WaitSomeMiliseconds();
 	WriteToFile(path)
