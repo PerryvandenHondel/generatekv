@@ -27,7 +27,7 @@ const
 	
 var
 	path: AnsiString;
-	maxLines: integer;
+	//maxLines: integer;
 
 	
 procedure WaitSomeMiliseconds();
@@ -35,7 +35,7 @@ var
 	num: integer;
 begin
 	Randomize;
-	num := Random(750) + 1;
+	num := Random(500) + 1;
 	Sleep(num);
 end;
 
@@ -174,9 +174,8 @@ begin
 	//for x := 1 to maxLines do
 	x := 0;
 	repeat
+		WaitSomeMiliseconds();
 		inc(x);
-		//WaitSomeMiliseconds();
-		//WriteLn(x, ' [ESC] = break');
 		randomize;
 		
 		z := random(4);
