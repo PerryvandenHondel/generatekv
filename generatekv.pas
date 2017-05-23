@@ -89,12 +89,6 @@ begin
 	
 	entries := LineCount(path);
 	selected := Random(entries) + 1;
-	WriteLn('file ', path, ' has ', entries, ' entries.');
-	WriteLn('Selected number ', selected);
-	
-	
-	//WriteLn(entries);
-	//WriteLn(selected);
 	
 	AssignFile(f, path);
 	{I+}
@@ -112,42 +106,7 @@ begin
 end; // of GetRandomItemFromFile()
 	
 
-function GetListIp(key: AnsiString): AnsiString;
-var
-	path: AnsiString;
-	f: TextFile;
-	line: AnsiString;
-	entries: integer;
-	selected: integer;
-	x: integer;
-	r: AnsiString;
-begin
-	Randomize;
-	r := '';
-	path := 'list-ip.txt';
-	
-	entries := LineCount(path);
-	selected := Random(entries) + 1;
-	
-	//WriteLn(entries);
-	//WriteLn(selected);
-	
-	AssignFile(f, path);
-	{I+}
-	Reset(f);
-	for x := 1 to selected do
-	begin
-		ReadLn(f, line);
-		if x = selected then
-			r := line;
-			
-		//WriteLn(x, ': ', line);
-	end;
-	CloseFile(f);
-	GetListIp := key + '=' + r;
-end;	
-	
-	
+
 function GetRandomNumber(key: Ansistring; maxNumber: integer): AnsiString;
 var
 	r: integer;
