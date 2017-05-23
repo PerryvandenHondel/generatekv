@@ -163,9 +163,10 @@ begin
 	WriteLn('Running...');
 	
 	path := ReadSettingKey('generatekv.conf', 'Settings', 'output');
-	//path := 'd:\opt\splunk\sandbox\testkv.log';
+	WriteLn('Output to: ', path);
 	
 	configMaxWait := StrToInt(ReadSettingKey('generatekv.conf', 'Settings', 'maxWait'));
+	WriteLn('Maximum wait between events: ', configMaxWait);
 	
 	//WaitSomeMiliseconds();
 	WriteToFile(path)
