@@ -88,9 +88,9 @@ begin
 	r := '';
 	
 	entries := LineCount(path);
-	WriteLn('file ', path, ' has ', entries, ' entries.');
 	selected := Random(entries) + 1;
-	WriteLn('Selected number', selected);
+	WriteLn('file ', path, ' has ', entries, ' entries.');
+	WriteLn('Selected number ', selected);
 	
 	
 	//WriteLn(entries);
@@ -153,9 +153,7 @@ var
 	r: integer;
 begin
 	Randomize;
-	
 	r := Random(maxNumber) + 1;
-	
 	GetRandomNumber := key + '=' + IntToStr(r);
 end;
 
@@ -183,12 +181,12 @@ begin
 		inc(x);
 		randomize;
 		
-		z := random(4);
+		z := random(5);
 		case z of
-			1: l := GetListIp('ip') + SPACE + GetRandomNumber('num', 1000);
-			2: l := GetListIp('src_ip') + SPACE + GetListIp('dst_ip') + SPACE + GetRandomNumber('bytes_transferd', 20000);
-			3: l := GetRandomItemFromFile('list-computer.txt','system');
-			4: WriteLn('4');
+			1: l := GetRandomItemFromFile('list-ip.txt', 'ip') + SPACE + GetRandomNumber('num', 1000);
+			2: l := GetRandomItemFromFile('list-ip.txt', 'src_ip') + SPACE + GetRandomItemFromFile('list-ip.txt', 'dst_ip') + SPACE + GetRandomNumber('bytes_transferd', 20000);
+			3: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logon';
+			4: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logoff';
 		end; // case
 		l := GetDateTime() + SPACE + l;
 		WriteLn(l);
