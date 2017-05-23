@@ -66,6 +66,43 @@ begin
 end; // of function GetDateTime
 	
 	
+function GetRandomItemFromFile(path: AnsiString; key: AnsiString): AnsiString;
+//
+//	Read a random item from the filename and return it as a key-value pair
+//
+var
+	f: TextFile;
+	line: AnsiString;
+	entries: integer;
+	selected: integer;
+	x: integer;
+	r: AnsiString;
+begin
+	Randomize;
+	r := '';
+	
+	entries := LineCount(path);
+	selected := Random(entries) + 1;
+	
+	//WriteLn(entries);
+	//WriteLn(selected);
+	
+	AssignFile(f, path);
+	{I+}
+	Reset(f);
+	for x := 1 to selected do
+	begin
+		ReadLn(f, line);
+		if x = selected then
+			r := line;
+			
+		//WriteLn(x, ': ', line);
+	end;
+	CloseFile(f);
+	GetRandomItemFromFile := key + '=' + r;
+end; // of GetRandomItemFromFile()
+	
+
 function GetListIp(key: AnsiString): AnsiString;
 var
 	path: AnsiString;
@@ -137,11 +174,11 @@ begin
 		WriteLn(x, ' [ESC] = break');
 		randomize;
 		
-		z := random(3);
+		z := random(4);
 		case z of
 			1: WriteLn(f, GetDateTime(), ' ', GetListIp('ip'), ' ', GetRandomNumber('num', 1000));
 			2: WriteLn(f, GetDateTime(), ' ', GetListIp('src_ip'), ' ', GetListIp('dst_ip'), ' ', GetRandomNumber('bytes_transferd', 20000));
-			3: WriteLn('3');
+			3: WriteLn(f, GetDateTime(), '  ', GetRandomItemFromFile('list-computer.txt','system'));
 			4: WriteLn('4');
 		end; // case
 	until keypressed;
