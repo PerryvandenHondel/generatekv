@@ -150,7 +150,7 @@ begin
 			4: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logoff';
 		end; // case
 		wl := GetDateTime() + SPACE + l;
-		WriteLn(x, SPACE, '(', path, ')', wl);
+		WriteLn(x, ' (', path, ') ', wl);
 		WriteLn(f, wl);
 	until keypressed;
 	CloseFile(f);
