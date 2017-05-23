@@ -20,6 +20,10 @@ uses
 	SysUtils,
 	USupportLibrary;
 
+
+const
+	SPACE = #32;
+
 	
 var
 	path: AnsiString;
@@ -157,6 +161,7 @@ var
 	f: TextFile;
 	x: integer;
 	z: integer;
+	l: AnsiString;
 begin
 	AssignFile(f, path);
 	{I+}
@@ -171,16 +176,18 @@ begin
 	repeat
 		inc(x);
 		//WaitSomeMiliseconds();
-		WriteLn(x, ' [ESC] = break');
+		//WriteLn(x, ' [ESC] = break');
 		randomize;
 		
 		z := random(4);
 		case z of
-			1: WriteLn(f, GetDateTime(), ' ', GetListIp('ip'), ' ', GetRandomNumber('num', 1000));
-			2: WriteLn(f, GetDateTime(), ' ', GetListIp('src_ip'), ' ', GetListIp('dst_ip'), ' ', GetRandomNumber('bytes_transferd', 20000));
-			3: WriteLn(f, GetDateTime(), '  ', GetRandomItemFromFile('list-computer.txt','system'));
+			1: l := GetListIp('ip') + SPACE + GetRandomNumber('num', 1000);
+			2: l := GetListIp('src_ip') + SPACE + GetListIp('dst_ip') + SPACE + GetRandomNumber('bytes_transferd', 20000);
+			3: l := GetRandomItemFromFile('list-computer.txt','system');
 			4: WriteLn('4');
 		end; // case
+		WriteLn(l);
+		WriteLn(f, GetDateTime(), ' ', l);
 	until keypressed;
 	CloseFile(f);
 end;
