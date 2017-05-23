@@ -124,6 +124,7 @@ var
 	x: integer;
 	z: integer;
 	l: AnsiString;
+	wl: AnsiString;
 begin
 	AssignFile(f, path);
 	{I+}
@@ -148,10 +149,9 @@ begin
 			3: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logon';
 			4: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logoff';
 		end; // case
-		l := GetDateTime() + SPACE + l;
-		WriteLn(x, SPACE, l);
-		WriteLn(f, l);
-		l := '';
+		wl := GetDateTime() + SPACE + l;
+		WriteLn(x, SPACE, wl);
+		WriteLn(f, wl);
 	until keypressed;
 	CloseFile(f);
 end;
