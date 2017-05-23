@@ -136,9 +136,10 @@ begin
 	//for x := 1 to maxLines do
 	x := 0;
 	repeat
-		WaitSomeMiliseconds();
-		inc(x);
+		Sleep(200);
 		randomize;
+		
+		inc(x);
 		
 		z := random(5);
 		case z of
@@ -148,7 +149,7 @@ begin
 			4: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logoff';
 		end; // case
 		l := GetDateTime() + SPACE + l;
-		WriteLn(l);
+		WriteLn(x, SPACE, l);
 		WriteLn(f, l);
 		l := '';
 	until keypressed;
