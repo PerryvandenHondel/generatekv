@@ -83,10 +83,15 @@ var
 	r: AnsiString;
 begin
 	Randomize;
+	Sleep(500);
+	
 	r := '';
 	
 	entries := LineCount(path);
+	WriteLn('file ', path, ' has ', entries, ' entries.');
 	selected := Random(entries) + 1;
+	WriteLn('Selected number', selected);
+	
 	
 	//WriteLn(entries);
 	//WriteLn(selected);
