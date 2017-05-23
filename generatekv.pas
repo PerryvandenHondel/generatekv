@@ -160,7 +160,9 @@ end;
 
 begin
 	WriteLn('Running...');
-	path := 'd:\opt\splunk\sandbox\testkv.log';
+	
+	path := ReadSettingKey('generatekv.conf', 'Settings', 'output');
+	//path := 'd:\opt\splunk\sandbox\testkv.log';
 	
 	//WaitSomeMiliseconds();
 	WriteToFile(path)
