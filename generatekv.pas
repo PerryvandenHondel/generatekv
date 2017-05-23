@@ -189,6 +189,7 @@ begin
 		l := GetDateTime() + SPACE + l;
 		WriteLn(l);
 		WriteLn(f, l);
+		l := '';
 	until keypressed;
 	CloseFile(f);
 end;
