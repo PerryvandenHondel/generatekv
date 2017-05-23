@@ -142,12 +142,13 @@ begin
 		
 		inc(x);
 		
-		z := random(5);
+		z := random(6);
 		case z of
 			1: l := GetRandomItemFromFile('list-ip.txt', 'ip') + SPACE + GetRandomNumber('num', 1000);
 			2: l := GetRandomItemFromFile('list-ip.txt', 'src_ip') + SPACE + GetRandomItemFromFile('list-ip.txt', 'dst_ip') + SPACE + GetRandomNumber('bytes_transferd', 20000);
 			3: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logon';
 			4: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logoff';
+			5: l := 'action=reading' + SPACE + GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + GetRandomNumber('read', 1000);
 		end; // case
 		wl := GetDateTime() + SPACE + l;
 		WriteLn(x, ' (', path, ') ', wl);
