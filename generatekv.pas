@@ -101,23 +101,14 @@ begin
 	begin
 		ReadLn(f, line);
 		if x = selected then
-		begin
 			r := line;
-		end;
-		//WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
-	
-	WriteLn(r);
-	WriteLn(Pos(';', r));
 	
 	lat := LeftStr(r, Pos(';', r) - 1);
 	lon := RightStr(r, Pos(';', r) - 2);
 	
-	WriteLn(lat);
-	WriteLn(lon);
-	
-	//GetGeoCoordinates := key + '=' + r;
+	GetGeoCoordinates := 'lat=' + lat + SPACE + 'lon=' + lon;
 end; // of GetGeoCoordinates()	
 	
 	
