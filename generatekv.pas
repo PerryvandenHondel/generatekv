@@ -71,6 +71,47 @@ begin
 end; // of function GetDateTime
 	
 	
+function GetGeoCoordinates(path: AnsiString): AnsiString;
+//
+//	Read 2 geo coordinates from a file and return//
+//		lat=cordinate1 lat=cordinate2
+//
+var
+	f: TextFile;
+	line: Ansistring;
+	entries:integer;
+	selected: integer;
+	x: integer;
+	r: AnsiString;
+begin
+	Randomize;
+	Sleep(configMaxWait);
+	
+	r := '';
+	
+	entries := LineCount(path);
+	selected := Random(entries) + 1;
+	
+	AssignFile(f, path);
+	{I+}
+	Reset(f);
+	for x := 1 to selected do
+	begin
+		ReadLn(f, line);
+		if x = selected then
+		begin
+			r := line;
+			WriteLn(r);
+		end;
+		//WriteLn(x, ': ', line);
+	end;
+	CloseFile(f);
+	//GetGeoCoordinates := key + '=' + r;
+end; // of GetGeoCoordinates()	
+	
+	
+	
+	
 function GetRandomItemFromFile(path: AnsiString; key: AnsiString): AnsiString;
 //
 //	Read a random item from the filename and return it as a key-value pair
@@ -168,8 +209,10 @@ begin
 	configMaxWait := StrToInt(ReadSettingKey('generatekv.conf', 'Settings', 'maxWait'));
 	WriteLn('Maximum wait between events: ', configMaxWait);
 	
+	Writeln(GetGeoCoordinates('list-geo.txt'));
+	
 	//WaitSomeMiliseconds();
-	WriteToFile(path)
+	//WriteToFile(path)
 	//WriteLn('Returned IP=', GetIp());
 end. 
 
