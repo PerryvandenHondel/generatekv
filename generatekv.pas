@@ -111,8 +111,8 @@ begin
 	WriteLn(r);
 	WriteLn(Pos(';', r));
 	
-	lat := LeftStr(r, Pos(';', r));
-	lon := RightStr(r, Pos(';', r));
+	lat := LeftStr(r, Pos(';', r) - 1);
+	lon := RightStr(r, Pos(';', r) + 1);
 	
 	WriteLn(lat);
 	WriteLn(lon);
