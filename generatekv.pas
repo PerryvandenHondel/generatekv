@@ -17,7 +17,7 @@ uses
 	Crt,
 	Dos,
 	StrUtils,
-	SysUtils,
+		SysUtils,
 	USupportLibrary;
 
 
@@ -83,6 +83,8 @@ var
 	selected: integer;
 	x: integer;
 	r: AnsiString;
+	lat: AnsiString;
+	lon: AnsiString;
 begin
 	Randomize;
 	Sleep(configMaxWait);
@@ -106,6 +108,13 @@ begin
 		//WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
+	
+	lat := LeftStr(r, Pos(r, ';'));
+	lon := RightStr(r, Pos(r, ';'));
+	
+	WriteLn(lat);
+	WriteLn(lon);
+	
 	//GetGeoCoordinates := key + '=' + r;
 end; // of GetGeoCoordinates()	
 	
