@@ -109,6 +109,8 @@ begin
 	end;
 	CloseFile(f);
 	
+	WriteLn(r);
+	
 	lat := LeftStr(r, Pos(r, ';'));
 	lon := RightStr(r, Pos(r, ';'));
 	
