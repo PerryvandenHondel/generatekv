@@ -103,13 +103,13 @@ begin
 		if x = selected then
 		begin
 			r := line;
-			WriteLn(r);
 		end;
 		//WriteLn(x, ': ', line);
 	end;
 	CloseFile(f);
 	
 	WriteLn(r);
+	WriteLn(Pos(r, ';'));
 	
 	lat := LeftStr(r, Pos(r, ';'));
 	lon := RightStr(r, Pos(r, ';'));
