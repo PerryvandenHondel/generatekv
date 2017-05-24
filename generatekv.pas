@@ -186,7 +186,7 @@ begin
 		
 		inc(x);
 		
-		z := random(6);
+		z := random(7);
 		case z of
 			1: l := GetRandomItemFromFile('list-ip.txt', 'ip') + SPACE + GetRandomNumber('num', 1000);
 			2: l := GetRandomItemFromFile('list-ip.txt', 'src_ip') + SPACE + GetRandomItemFromFile('list-ip.txt', 'dst_ip') + SPACE + GetRandomNumber('bytes_transferd', 20000);
