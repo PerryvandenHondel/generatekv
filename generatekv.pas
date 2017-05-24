@@ -193,6 +193,7 @@ begin
 			3: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logon';
 			4: l := GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + 'action=logoff';
 			5: l := 'action=reading' + SPACE + GetRandomItemFromFile('list-computer.txt','system') + SPACE + GetRandomItemFromFile('list-username.txt', 'username') + SPACE + GetRandomNumber('read', 1000);
+			6: l := GetRandomNumber('bytes_transferd', 10000) + SPACE + GetGeoCoordinates('list_geo.txt');
 		end; // case
 		wl := GetDateTime() + SPACE + l;
 		WriteLn(x, ' (', path, ') ', wl);
@@ -211,10 +212,10 @@ begin
 	configMaxWait := StrToInt(ReadSettingKey('generatekv.conf', 'Settings', 'maxWait'));
 	WriteLn('Maximum wait between events: ', configMaxWait);
 	
-	Writeln(GetGeoCoordinates('list-geo.txt'));
+	//Writeln(GetGeoCoordinates('list-geo.txt'));
 	
 	//WaitSomeMiliseconds();
-	//WriteToFile(path)
+	WriteToFile(path)
 	//WriteLn('Returned IP=', GetIp());
 end. 
 
