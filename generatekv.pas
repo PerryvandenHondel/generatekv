@@ -109,10 +109,10 @@ begin
 	CloseFile(f);
 	
 	WriteLn(r);
-	WriteLn(Pos(r, ';'));
+	WriteLn(Pos(';', r));
 	
-	lat := LeftStr(r, Pos(r, ';'));
-	lon := RightStr(r, Pos(r, ';'));
+	lat := LeftStr(r, Pos(';', r));
+	lon := RightStr(r, Pos(';', r));
 	
 	WriteLn(lat);
 	WriteLn(lon);
