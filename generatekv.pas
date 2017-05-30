@@ -17,8 +17,9 @@ uses
 	Crt,
 	Dos,
 	StrUtils,
-		SysUtils,
-	USupportLibrary;
+	SysUtils,
+	USupportLibrary,
+	UVersion;
 
 
 const
@@ -203,8 +204,16 @@ begin
 end;
 
 
+
+procedure ProgTitle();
 begin
-	WriteLn('Running...');
+	WriteLn('GenerateKV - Version ', VERSION);
+end; // of ProgTitle
+
+
+
+begin
+	ProgTitle();
 	
 	path := ReadSettingKey('generatekv.conf', 'Settings', 'output');
 	WriteLn('Output to: ', path);
